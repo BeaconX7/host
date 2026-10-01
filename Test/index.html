@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShadowNode | High Performance Minecraft & VPS Hosting</title>
+  <meta name="description" content="ShadowNode provides affordable and performance-focused Minecraft Hosting and VPS solutions built for reliable server performance. Power Your World.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ShadowNode | High Performance Minecraft & VPS Hosting">
+  <meta property="og:description" content="Affordable and performance-focused Minecraft Hosting and VPS solutions built for reliable server performance. Power Your World.">
+  <meta property="og:image" content="assets/logo.png">
+  <meta name="theme-color" content="#050B14">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/background.css">
+  <link rel="stylesheet" href="css/cursor.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/pricing.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+  <!-- Custom Geometric Reticle Cursor (Desktop Only) -->
+  <div class="custom-cursor-core" aria-hidden="true"></div>
+  <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+  <!-- Signature Interactive 6-Layer Mouse-Parallax Background -->
+  <div class="bg-experience" aria-hidden="true">
+    <div class="bg-layer-1-atmosphere"></div>
+    <div class="bg-layer-2-lightfield">
+      <div class="lightfield-orb orb-primary"></div>
+      <div class="lightfield-orb orb-secondary"></div>
+      <div class="lightfield-orb orb-tertiary"></div>
+    </div>
+    <div class="bg-layer-3-grid"></div>
+    <div class="bg-layer-4-shapes">
+      <div class="tech-schematic schematic-box-1"></div>
+      <div class="tech-schematic schematic-box-2"></div>
+      <div class="schematic-busline busline-1"></div>
+      <div class="schematic-busline busline-2"></div>
+    </div>
+    <canvas id="bgNetworkCanvas" class="bg-layer-5-network"></canvas>
+    <canvas id="bgParticlesCanvas" class="bg-layer-6-particles"></canvas>
+  </div>
+
+  <!-- Global Sticky Navbar -->
+  <header class="navbar" id="mainNavbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" aria-label="ShadowNode Home">
+        <img src="assets/logo.png" alt="ShadowNode Logo" class="brand-logo-img">
+        <span class="brand-text"><span class="brand-name">Shadow</span><span class="brand-sub">Node</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+          <li class="nav-item"><a href="minecraft.html" class="nav-link">Minecraft Hosting</a></li>
+          <li class="nav-item"><a href="vps.html" class="nav-link">VPS</a></li>
+          <li class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="game-modes.html" class="nav-link">Game Modes</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-status-pill" title="Network health status">
+          <span class="status-dot"></span>
+          <span>OPERATIONAL</span>
+        </div>
+        <a href="minecraft.html" class="btn btn-primary btn-sm btn-glow">Get Started</a>
+        <a href="https://discord.gg/qsGp3FyNAK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm nav-btn-discord">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          <span>Discord</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Brand-Focused Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left Content -->
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-tag">POWER YOUR WORLD</span>
+              <span>Next-Gen Gaming & VPS Infrastructure</span>
+            </div>
+
+            <h1 class="hero-headline">
+              Power Your World.
+              <span class="hero-headline-highlight">Host Without Limits.</span>
+            </h1>
+
+            <p class="hero-description">
+              Affordable, performance-oriented Minecraft Hosting and scalable VPS instances engineered on high-frequency NVMe infrastructure. Instant deployment, ultra-low latency routing, and enterprise DDoS shielding starting at just ₹44 / Month.
+            </p>
+
+            <div class="hero-ctas">
+              <a href="minecraft.html" class="btn btn-primary btn-glow">
+                <span>View Minecraft Plans</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </a>
+              <a href="vps.html" class="btn btn-secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+                <span>View VPS Plans</span>
+              </a>
+            </div>
+
+            <!-- Compact Feature Indicators -->
+            <div class="hero-features">
+              <div class="feature-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span>HIGH PERFORMANCE</span>
+              </div>
+              <div class="feature-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" x2="2" y1="12" y2="12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+                <span>NVMe STORAGE</span>
+              </div>
+              <div class="feature-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                <span>DDoS PROTECTION</span>
+              </div>
+              <div class="feature-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+                <span>FAST DEPLOYMENT</span>
+              </div>
+              <div class="feature-pill">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>
+                <span>24/7 SUPPORT</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Telemetry Hologram Card -->
+          <div class="hero-visual">
+            <div class="floating-chip chip-1">
+              <span class="status-dot"></span>
+              <span>TPS: 20.00 (STABLE)</span>
+            </div>
+            <div class="floating-chip chip-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+              <span>PING: 8ms TO EDGE</span>
+            </div>
+
+            <div class="telemetry-card">
+              <div class="telemetry-logo-wrapper">
+                <img src="assets/logo.png" alt="Official ShadowNode" class="telemetry-logo" style="border-radius: 8px;">
+                <div class="node-status-badge">
+                  <span class="pulse-dot"></span>
+                  <span>NODE: SHADOW-MUM-01</span>
+                </div>
+              </div>
+
+              <div class="telemetry-metrics">
+                <div class="metric-row">
+                  <div class="metric-header">
+                    <span>CPU LOAD</span>
+                    <span class="val">12.4%</span>
+                  </div>
+                  <div class="metric-bar-bg">
+                    <div class="metric-bar-fill" style="width: 12.4%;"></div>
+                  </div>
+                </div>
+
+                <div class="metric-row">
+                  <div class="metric-header">
+                    <span>ECC RAM ALLOCATION</span>
+                    <span class="val">28.4 / 64 GB</span>
+                  </div>
+                  <div class="metric-bar-bg">
+                    <div class="metric-bar-fill" style="width: 44.3%;"></div>
+                  </div>
+                </div>
+
+                <div class="metric-row">
+                  <div class="metric-header">
+                    <span>NVMe GEN4 I/O ACTIVITY</span>
+                    <span class="val">7,240 MB/s</span>
+                  </div>
+                  <div class="metric-bar-bg">
+                    <div class="metric-bar-fill" style="width: 22.8%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="telemetry-specs">
+                <div class="spec-cell">
+                  <span class="label">UPTIME</span>
+                  <span class="val">99.98%</span>
+                </div>
+                <div class="spec-cell">
+                  <span class="label">SCRUBBING</span>
+                  <span class="val">3.2 Tbps</span>
+                </div>
+                <div class="spec-cell">
+                  <span class="label">PANEL</span>
+                  <span class="val">Pterodactyl</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Showcase: Choose Your Power -->
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Flagship Architecture</div>
+          <h2 class="section-title">CHOOSE YOUR <span class="text-gradient">POWER</span></h2>
+          <p class="section-subtitle">
+            Engineered compute tiers tailored for multiplayer game servers and high-availability cloud VPS environments.
+          </p>
+        </div>
+
+        <div class="products-split-grid">
+          <!-- Minecraft Card -->
+          <div class="product-showcase-card mc reveal-on-scroll">
+            <div>
+              <span class="product-card-badge">Game Server Infrastructure</span>
+              <h3 class="product-card-title">MINECRAFT SERVERS</h3>
+              <p class="product-card-desc">
+                High-frequency game hosting tuned for vanilla, modded, and paper networks. Pre-configured for immediate multiplayer performance.
+              </p>
+              <ul class="product-feature-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Java + Bedrock Cross-play Ready</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Fast 60-Second Automated Deployment</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Full Server Management via Pterodactyl</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Starting at only ₹44 / Month</span>
+                </li>
+              </ul>
+            </div>
+            <a href="minecraft.html" class="btn btn-primary btn-glow">View Minecraft Plans &rarr;</a>
+          </div>
+
+          <!-- VPS Card -->
+          <div class="product-showcase-card vps reveal-on-scroll">
+            <div>
+              <span class="product-card-badge">Virtual Private Servers</span>
+              <h3 class="product-card-title">VPS SERVERS</h3>
+              <p class="product-card-desc">
+                Root access virtual machines engineered on Intel & AMD High-Performance processors with dedicated NVMe and 1Gbps ports.
+              </p>
+              <ul class="product-feature-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Full Root Access & Custom OS Templates</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>16GB to 64GB High Speed ECC RAM</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Advanced Workloads, Bots, Web & Databases</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Dedicated Port Speeds of 1 Gbps</span>
+                </li>
+              </ul>
+            </div>
+            <a href="vps.html" class="btn btn-secondary">View VPS Plans &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Concise Features Preview (Portal Teaser) -->
+    <section class="section" style="background: rgba(4, 9, 18, 0.4);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Infrastructure Teaser</div>
+          <h2 class="section-title">BUILT FOR <span class="text-gradient">PERFORMANCE</span></h2>
+          <p class="section-subtitle">
+            Enterprise hardware, multi-terabit DDoS scrubbing, and low-latency edge nodes engineered for maximum stability.
+          </p>
+        </div>
+
+        <div class="features-grid" style="margin-bottom: 36px;">
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <h3 class="feature-card-title">Multi-Terabit DDoS Shield</h3>
+            <div class="feature-card-subtitle">Path.net & Cosmic Guard</div>
+            <p class="feature-card-desc">Always-on line-rate mitigation scrubbing volumetric UDP floods and layer-7 botnets within 2ms without dropping genuine player packets.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>
+            </div>
+            <h3 class="feature-card-title">High-Frequency Compute</h3>
+            <div class="feature-card-subtitle">Intel & AMD Silicon</div>
+            <p class="feature-card-desc">High single-thread clock boost with PCIe Gen4 NVMe flash storage and DDR4/DDR5 ECC RAM for constant, stutter-free 20.00 TPS.</p>
+          </div>
+
+          <div class="feature-card reveal-on-scroll">
+            <div class="feature-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+            </div>
+            <h3 class="feature-card-title">Instant 60s Deployment</h3>
+            <div class="feature-card-subtitle">Automated Provisioning</div>
+            <p class="feature-card-desc">Servers and VPS nodes deploy automatically the moment setup completes, with custom Pterodactyl access delivered in seconds.</p>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="features.html" class="btn btn-secondary">Explore All Features & Hardware &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Concise Game Modes Teaser (Portal Teaser) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Versatility</div>
+          <h2 class="section-title">OPTIMIZED FOR <span class="text-gradient">ALL GAMEMODES</span></h2>
+          <p class="section-subtitle">
+            From basic SMP groups to massive Factions and custom modpack realms.
+          </p>
+        </div>
+
+        <div class="modes-grid" style="margin-bottom: 36px;">
+          <div class="mode-card reveal-on-scroll">
+            <div class="mode-card-header">
+              <h3 class="mode-card-title">SURVIVAL (SMP)</h3>
+              <span class="mode-badge">POPULAR</span>
+            </div>
+            <p class="mode-tagline">Vanilla & Semi-Vanilla Worlds</p>
+            <p class="mode-desc">Smooth chunk generation and entity management for multiplayer survival communities.</p>
+            <div class="mode-recommendation">Rec: Shadow Stone / Iron (2-4GB)</div>
+          </div>
+
+          <div class="mode-card reveal-on-scroll">
+            <div class="mode-card-header">
+              <h3 class="mode-card-title">FACTIONS & PVP</h3>
+              <span class="mode-badge">HIGH TPS</span>
+            </div>
+            <p class="mode-tagline">TNT Physics & High Cannon Speed</p>
+            <p class="mode-desc">Dedicated CPU cycles to handle massive raid events, custom knockback, and explosion calculations.</p>
+            <div class="mode-recommendation">Rec: Shadow Blaze / Obsidian (16-24GB)</div>
+          </div>
+
+          <div class="mode-card reveal-on-scroll">
+            <div class="mode-card-header">
+              <h3 class="mode-card-title">MODDED REALMS</h3>
+              <span class="mode-badge">HEAVY RAM</span>
+            </div>
+            <p class="mode-tagline">Forge, Fabric & Custom Jars</p>
+            <p class="mode-desc">High memory capacity for 200+ mod packs like All The Mods and RLcraft with zero JVM stutter.</p>
+            <div class="mode-recommendation">Rec: Shadow Ultra / Ultimate (32-64GB)</div>
+          </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="game-modes.html" class="btn btn-secondary">View All Game Modes & Setups &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Infrastructure Map Teaser -->
+    <section class="section" style="background: rgba(4, 9, 18, 0.5);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Global Low Latency</div>
+          <h2 class="section-title">GLOBAL EDGE <span class="text-gradient">ROUTING</span></h2>
+          <p class="section-subtitle">
+            Strategic server nodes connected to Tier 1 transit routes for minimal jitter and low ping across India, Asia, Europe, and North America.
+          </p>
+        </div>
+
+        <div class="node-status-bar" id="globalNodeStatus">
+          <!-- Populated by js/infrastructure.js -->
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <a href="features.html#infrastructure" class="btn btn-secondary">Test Latency & Route Status &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transparent Policy Assurances -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Guarantees</div>
+          <h2 class="section-title">TRANSPARENT <span class="text-gradient">PROMISES</span></h2>
+          <p class="section-subtitle">
+            No hidden clauses or oversold hardware. Just pure dedicated performance.
+          </p>
+        </div>
+
+        <div class="policy-grid" id="policyList">
+          <!-- Populated by js/main.js from data.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section" id="ctaSection">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-title">READY TO BUILD <span class="text-gradient">YOUR SERVER?</span></h2>
+          <p class="cta-subtitle">
+            Choose your resources. Deploy your server. Build your community. Scale when you need to.
+          </p>
+          <div class="cta-buttons">
+            <a href="minecraft.html" class="btn btn-primary btn-glow">View Minecraft Plans &rarr;</a>
+            <a href="vps.html" class="btn btn-secondary">View VPS Plans &rarr;</a>
+            <a href="https://discord.gg/qsGp3FyNAK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Join Discord</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Global Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+            <img src="assets/logo.png" alt="ShadowNode Logo" style="height: 44px; width: auto; border-radius: 8px;">
+            <span class="brand-text" style="font-size: 1.15rem;"><span class="brand-name">Shadow</span><span class="brand-sub">Node</span></span>
+          </div>
+          <p>
+            High-performance Minecraft servers and scalable VPS cloud infrastructure engineered for zero latency and round-the-clock stability. Power Your World.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Hosting</h4>
+          <ul class="footer-links">
+            <li><a href="minecraft.html">Minecraft Hosting</a></li>
+            <li><a href="vps.html">VPS Cloud Hosting</a></li>
+            <li><a href="minecraft.html">Shadow Budget Plans</a></li>
+            <li><a href="minecraft.html">Shadow Premium Plans</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="features.html">Core Features</a></li>
+            <li><a href="game-modes.html">Game Modes</a></li>
+            <li><a href="about.html">About ShadowNode</a></li>
+            <li><a href="support.html">Technical Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Legal & Community</h4>
+          <ul class="footer-links">
+            <li><a href="https://discord.gg/qsGp3FyNAK" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="refund.html">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ShadowNode. All rights reserved. Minecraft is a registered trademark of Mojang Synergies AB.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--purple-bright);">Engineered for Extreme Performance</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/infrastructure.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+/* ============================================================
+   MINE-X HOSTING — SIGNATURE INTERACTIVE BACKGROUND ARCHITECTURE
+   6 Distinct Parallax Depth Layers with GPU-accelerated translate3d
+   Simultaneous Continuous Autonomous Motion + Mouse Parallax
+   ============================================================ */
+
+.bg-experience {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: var(--bg-deep-navy);
+}
+
+/* Layer 1: Deep Atmospheric Light (Calibrated Parallax: ~3px) */
+.bg-layer-1-atmosphere {
+  position: absolute;
+  inset: -60px;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(55, 18, 92, 0.6) 0%, transparent 70%),
+    radial-gradient(circle at 10% 85%, rgba(35, 10, 60, 0.5) 0%, transparent 60%),
+    radial-gradient(circle at 90% 45%, rgba(20, 7, 36, 0.75) 0%, transparent 55%),
+    #07040C;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Layer 2: Soft Violet / Purple Gradient Lightfield (Calibrated Parallax: ~6px) */
+.bg-layer-2-lightfield {
+  position: absolute;
+  inset: -80px;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  filter: blur(85px);
+  opacity: 0.75;
+}
+
+.lightfield-orb {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+}
+
+.orb-primary {
+  width: 720px;
+  height: 720px;
+  top: -120px;
+  left: 22%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.2) 0%, rgba(124, 58, 237, 0.08) 50%, transparent 75%);
+  animation: orbFloat1 18s ease-in-out infinite alternate;
+}
+
+.orb-secondary {
+  width: 620px;
+  height: 620px;
+  top: 48%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.18) 0%, rgba(168, 85, 247, 0.06) 50%, transparent 75%);
+  animation: orbFloat2 22s ease-in-out infinite alternate;
+}
+
+.orb-tertiary {
+  width: 660px;
+  height: 660px;
+  bottom: -150px;
+  left: 4%;
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.14) 0%, transparent 70%);
+  animation: orbFloat3 25s ease-in-out infinite alternate;
+}
+
+@keyframes orbFloat1 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 30px) scale(1.08); }
+  100% { transform: translate(-30px, 45px) scale(0.96); }
+}
+
+@keyframes orbFloat2 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-45px, -40px) scale(1.06); }
+  100% { transform: translate(35px, -20px) scale(0.98); }
+}
+
+@keyframes orbFloat3 {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -25px) scale(1.1); }
+  100% { transform: translate(-25px, 20px) scale(0.95); }
+}
+
+/* Layer 3: Technical Precision Grid (Calibrated Parallax: ~8px) */
+.bg-layer-3-grid {
+  position: absolute;
+  inset: -90px;
+  background-image: 
+    linear-gradient(to right, rgba(168, 85, 247, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.045) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 45%, transparent 92%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 40%, black 45%, transparent 92%);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Layer 4: Abstract Geometric Infrastructure Shapes & Diagrams (Calibrated Parallax: ~13px) */
+.bg-layer-4-shapes {
+  position: absolute;
+  inset: -100px;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.tech-schematic {
+  position: absolute;
+  border: 1px solid rgba(168, 85, 247, 0.16);
+  border-radius: 4px;
+  backdrop-filter: blur(2px);
+  will-change: transform;
+}
+
+.schematic-box-1 {
+  top: 14%;
+  left: 6%;
+  width: 140px;
+  height: 90px;
+  border-left: 2px solid var(--cyan-primary);
+  background: rgba(168, 85, 247, 0.02);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.03);
+}
+
+.schematic-box-1::after {
+  content: 'NODE CLUSTER // 0x2A';
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(168, 85, 247, 0.5);
+  letter-spacing: 0.12em;
+}
+
+.schematic-box-2 {
+  bottom: 22%;
+  right: 6%;
+  width: 160px;
+  height: 100px;
+  border-right: 2px solid var(--cyan-primary);
+  background: rgba(168, 85, 247, 0.02);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.03);
+}
+
+.schematic-box-2::after {
+  content: 'BGP PEERING // 10G-UPLINK';
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(168, 85, 247, 0.5);
+  letter-spacing: 0.12em;
+}
+
+.schematic-busline {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.22), transparent);
+  height: 1px;
+  overflow: hidden;
+}
+
+.schematic-busline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--cyan-primary), transparent);
+  animation: buslinePulse 6s ease-in-out infinite;
+}
+
+.busline-1 {
+  top: 28%;
+  left: 10%;
+  width: 380px;
+}
+
+.busline-2 {
+  bottom: 35%;
+  right: 12%;
+  width: 320px;
+}
+
+.busline-2::after {
+  animation-delay: 3s;
+}
+
+@keyframes buslinePulse {
+  0% { left: -40px; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+/* Layer 5: Network Nodes & Data Pathways Canvas (Calibrated Parallax: ~9px) */
+.bg-layer-5-network {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.88;
+}
+
+/* Layer 6: Distant Ambient Cosmic Particles (Calibrated Parallax: ~16px) */
+.bg-layer-6-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .orb-primary,
+  .orb-secondary,
+  .orb-tertiary,
+  .schematic-busline::after {
+    animation: none !important;
+  }
+}

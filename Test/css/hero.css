@@ -1,0 +1,559 @@
+/* ============================================================
+   MINE-X HOSTING — HERO STYLES (HOMEPAGE & DEDICATED PAGES)
+   ============================================================ */
+
+/* Primary Homepage Hero */
+.hero-section {
+  min-height: min(88vh, 850px);
+  padding-top: calc(var(--navbar-height) + clamp(16px, 3.5vw, 36px));
+  padding-bottom: clamp(40px, 6vw, 70px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(28px, 4vw, 56px);
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.28);
+  color: var(--cyan-primary);
+  font-size: clamp(0.72rem, 1.4vw, 0.8rem);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: clamp(14px, 2vw, 22px);
+  max-width: 100%;
+}
+
+.hero-badge-tag {
+  background: var(--cyan-primary);
+  color: #030712;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+}
+
+.hero-headline {
+  font-size: clamp(2.1rem, 4.8vw, 4.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.hero-headline-highlight {
+  display: block;
+  background: linear-gradient(135deg, #FFFFFF 0%, #C084FC 35%, #A855F7 70%, #7C3AED 100%);
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.45));
+  animation: textShimmerSweep 8s ease infinite;
+}
+
+@keyframes textShimmerSweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-description {
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  color: var(--text-secondary);
+  max-width: 580px;
+  line-height: 1.65;
+  margin-bottom: clamp(22px, 3.5vw, 34px);
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(26px, 4vw, 42px);
+  flex-wrap: wrap;
+}
+
+/* Feature Indicators */
+.hero-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 22px;
+}
+
+.feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(11, 23, 46, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+  transition: all var(--transition-fast);
+}
+
+.feature-pill:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  background: rgba(0, 229, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.feature-pill svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--cyan-primary);
+}
+
+/* Right Column: Holographic Node Telemetry Card */
+.hero-visual {
+  position: relative;
+  perspective: 1200px;
+}
+
+.telemetry-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(20, 11, 40, 0.9) 0%, rgba(9, 4, 18, 0.98) 100%);
+  border: 1px solid rgba(168, 85, 247, 0.28);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px rgba(168, 85, 247, 0.16);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform-style: preserve-3d;
+  transition: transform 0.4s var(--ease-spring), box-shadow 0.3s ease;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.telemetry-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan-primary), transparent);
+  box-shadow: 0 0 15px var(--cyan-primary);
+}
+
+.telemetry-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.telemetry-logo {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(168, 85, 247, 0.6));
+}
+
+.node-status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #34D399;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  position: relative;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  animation: pulseGreenRing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes pulseGreenRing {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  60% { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.telemetry-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.metric-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.metric-header span.val {
+  color: var(--cyan-primary);
+  font-weight: 600;
+}
+
+.metric-bar-bg {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.metric-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #7C3AED, #C084FC);
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+  transition: width 0.8s var(--ease-spring);
+  position: relative;
+}
+
+.metric-bar-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: barShimmerSweep 3s ease-in-out infinite;
+}
+
+@keyframes barShimmerSweep {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(100%); }
+}
+
+.telemetry-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.spec-cell {
+  background: rgba(5, 11, 20, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+}
+
+.spec-cell .label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.spec-cell .val {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.floating-chip {
+  position: absolute;
+  padding: 7px 12px;
+  background: rgba(18, 10, 36, 0.95);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(10px);
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 1.3vw, 0.75rem);
+  color: var(--text-white);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
+}
+
+.chip-1 {
+  top: -10px;
+  right: -6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: floatChip1 5s ease-in-out infinite alternate;
+}
+
+.chip-2 {
+  bottom: -10px;
+  left: -6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: floatChip2 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatChip1 {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(0.6deg); }
+  100% { transform: translateY(4px) rotate(-0.5deg); }
+}
+
+@keyframes floatChip2 {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(7px) rotate(-0.6deg); }
+  100% { transform: translateY(-4px) rotate(0.5deg); }
+}
+
+.telemetry-card::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(168, 85, 247, 0.05), transparent);
+  animation: telemetryScanline 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes telemetryScanline {
+  0% { top: -100%; }
+  100% { top: 200%; }
+}
+
+/* ============================================================
+   PAGE-SPECIFIC HERO HEADERS (MINECRAFT, VPS, FEATURES, ETC.)
+   ============================================================ */
+
+.page-hero {
+  padding-top: calc(var(--navbar-height) + clamp(16px, 3.5vw, 38px));
+  padding-bottom: clamp(34px, 5.5vw, 60px);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.page-hero-container {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+
+.page-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 229, 255, 0.08);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  color: var(--cyan-primary);
+  font-size: clamp(0.72rem, 1.4vw, 0.78rem);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: clamp(12px, 2vw, 18px);
+}
+
+.page-hero-title {
+  font-size: clamp(2rem, 4.4vw, 3.6rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin-bottom: clamp(12px, 2vw, 18px);
+  overflow-wrap: break-word;
+}
+
+.page-hero-desc {
+  font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: clamp(20px, 3.5vw, 28px);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-hero-chips {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(8px, 1.5vw, 12px);
+  flex-wrap: wrap;
+}
+
+.page-chip {
+  padding: 6px 14px;
+  background: rgba(11, 23, 46, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1.4vw, 0.78rem);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+}
+
+.page-chip svg {
+  stroke: var(--cyan-primary);
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* Responsive adjustments across devices */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-ctas, .hero-features {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: calc(var(--navbar-height) + 14px);
+    padding-bottom: 40px;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .telemetry-card {
+    padding: clamp(16px, 4vw, 22px);
+  }
+
+  .chip-1 {
+    top: -8px;
+    right: 4px;
+  }
+
+  .chip-2 {
+    bottom: -8px;
+    left: 4px;
+  }
+
+  .telemetry-specs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .spec-cell {
+    padding: 8px 4px;
+  }
+
+  .spec-cell .val {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .telemetry-specs {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .spec-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+  }
+  .spec-cell .label {
+    margin-bottom: 0;
+  }
+}
+
+/* Landscape mobile optimization (height <= 500px) */
+@media (max-height: 520px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: calc(56px + 14px);
+    padding-bottom: 28px;
+  }
+  .page-hero {
+    padding-top: calc(56px + 14px);
+    padding-bottom: 24px;
+  }
+}

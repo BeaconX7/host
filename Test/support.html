@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support & Help Center | ShadowNode</title>
+  <meta name="description" content="Get 24/7 technical assistance for your Minecraft and VPS server. Discord community support, knowledge base guides, and custom hosting inquiries.">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Support & Help Center | ShadowNode">
+  <meta property="og:description" content="Direct technician support via Discord, comprehensive knowledge base guides, and instant custom quotes.">
+  <meta property="og:image" content="assets/logo.png">
+  <meta name="theme-color" content="#050B14">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/background.css">
+  <link rel="stylesheet" href="css/cursor.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/pricing.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/modal.css">
+</head>
+<body>
+
+  <!-- Custom Geometric Reticle Cursor (Desktop Only) -->
+  <div class="custom-cursor-core" aria-hidden="true"></div>
+  <div class="custom-cursor-ring" aria-hidden="true"></div>
+
+  <!-- Signature Interactive 6-Layer Mouse-Parallax Background -->
+  <div class="bg-experience" aria-hidden="true">
+    <div class="bg-layer-1-atmosphere"></div>
+    <div class="bg-layer-2-lightfield">
+      <div class="lightfield-orb orb-primary"></div>
+      <div class="lightfield-orb orb-secondary"></div>
+      <div class="lightfield-orb orb-tertiary"></div>
+    </div>
+    <div class="bg-layer-3-grid"></div>
+    <div class="bg-layer-4-shapes">
+      <div class="tech-schematic schematic-box-1"></div>
+      <div class="tech-schematic schematic-box-2"></div>
+      <div class="schematic-busline busline-1"></div>
+      <div class="schematic-busline busline-2"></div>
+    </div>
+    <canvas id="bgNetworkCanvas" class="bg-layer-5-network"></canvas>
+    <canvas id="bgParticlesCanvas" class="bg-layer-6-particles"></canvas>
+  </div>
+
+  <!-- Global Sticky Navbar -->
+  <header class="navbar" id="mainNavbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-link" aria-label="ShadowNode Home">
+        <img src="assets/logo.png" alt="ShadowNode Logo" class="brand-logo-img">
+        <span class="brand-text"><span class="brand-name">Shadow</span><span class="brand-sub">Node</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="minecraft.html" class="nav-link">Minecraft Hosting</a></li>
+          <li class="nav-item"><a href="vps.html" class="nav-link">VPS</a></li>
+          <li class="nav-item"><a href="features.html" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="game-modes.html" class="nav-link">Game Modes</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="support.html" class="nav-link active">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-status-pill" title="Network health status">
+          <span class="status-dot"></span>
+          <span>OPERATIONAL</span>
+        </div>
+        <a href="minecraft.html" class="btn btn-primary btn-sm btn-glow">Get Started</a>
+        <a href="https://discord.gg/qsGp3FyNAK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm nav-btn-discord">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+          <span>Discord</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Dedicated Support Page Hero -->
+    <section class="page-hero">
+      <div class="container page-hero-container">
+        <div class="page-hero-badge">
+          <span>24/7 TECHNICAL ASSISTANCE</span>
+        </div>
+        <h1 class="page-hero-title">
+          HOW CAN WE <span class="text-gradient">HELP YOU TODAY?</span>
+        </h1>
+        <p class="page-hero-desc">
+          Get direct help from technicians who configure servers every day. Join our active Discord community, check setup guides, or request a custom plan quote.
+        </p>
+
+        <div class="page-hero-chips">
+          <div class="page-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Live Discord Engineering Support</span>
+          </div>
+          <div class="page-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Avg Response: Under 15 Minutes</span>
+          </div>
+          <div class="page-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>No Automated Robot Loops</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 Support Channels (Large Clear Buttons, NO "CREATE A TICKET") -->
+    <section class="section" style="padding-top: 10px;">
+      <div class="container">
+        <div class="products-split-grid" style="grid-template-columns: repeat(3, 1fr);">
+          
+          <!-- Channel 1: Discord -->
+          <div class="product-showcase-card mc reveal-on-scroll">
+            <div>
+              <span class="product-card-badge">Instant Community</span>
+              <h3 class="product-card-title" style="font-size: 1.6rem;">DISCORD SUPPORT</h3>
+              <p class="product-card-desc">
+                Chat directly with our infrastructure engineers and hundreds of other server administrators. Get rapid help with plugins, JVM flags, or network routes.
+              </p>
+              <ul class="product-feature-list" style="margin-bottom: 24px;">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>24/7 staff coverage across time zones</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Community announcements & incident status</span>
+                </li>
+              </ul>
+            </div>
+            <a href="https://discord.gg/qsGp3FyNAK" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-glow" style="width: 100%;">
+              Join Discord Server
+            </a>
+          </div>
+
+          <!-- Channel 2: Custom Quote Inquiry -->
+          <div class="product-showcase-card vps reveal-on-scroll">
+            <div>
+              <span class="product-card-badge">Sales & Custom Plans</span>
+              <h3 class="product-card-title" style="font-size: 1.6rem;">CUSTOM QUOTE</h3>
+              <p class="product-card-desc">
+                Need more than 64 GB RAM, dedicated physical CPU cores, customized BGP IP subnets, or high-volume enterprise gaming cluster infrastructure?
+              </p>
+              <ul class="product-feature-list" style="margin-bottom: 24px;">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Interactive resource price calculator</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Direct quote estimate in under 2 hours</span>
+                </li>
+              </ul>
+            </div>
+            <a href="https://discord.gg/qsGp3FyNAK" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%;">
+              Request Custom Quote on Discord
+            </a>
+          </div>
+
+          <!-- Channel 3: Setup & Guides -->
+          <div class="product-showcase-card mc reveal-on-scroll">
+            <div>
+              <span class="product-card-badge">Documentation</span>
+              <h3 class="product-card-title" style="font-size: 1.6rem;">SETUP GUIDES</h3>
+              <p class="product-card-desc">
+                Step-by-step technical documentation covering SFTP uploads, custom subdomain routing, GeyserMC bedrock setup, and MySQL database linking.
+              </p>
+              <ul class="product-feature-list" style="margin-bottom: 24px;">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Beginner-friendly configuration walk-throughs</span>
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>Pterodactyl panel tips & shortcuts</span>
+                </li>
+              </ul>
+            </div>
+            <a href="#guides" class="btn btn-secondary" style="width: 100%;">
+              View Setup Guides &darr;
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Getting Started & Common Questions Accordion -->
+    <section class="section" id="guides" style="background: rgba(4, 9, 18, 0.5);">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Self-Service Documentation</div>
+          <h2 class="section-title">COMMON <span class="text-gradient">QUESTIONS & GUIDES</span></h2>
+          <p class="section-subtitle">
+            Find immediate answers to standard technical questions and server administration tasks.
+          </p>
+        </div>
+
+        <div class="faq-section">
+          <details class="faq-item" open>
+            <summary class="faq-question">How do I connect to my server's SFTP file manager?</summary>
+            <div class="faq-answer">
+              Open your favorite SFTP client (such as FileZilla or WinSCP). Go to the "Settings" tab in your ShadowNode Pterodactyl panel to find your SFTP Host, Port, and Username. Use your panel account password to log in. You can now drag and drop world folders, plugins, and configuration files directly.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How do I point my custom domain (e.g. play.mycommunity.com)?</summary>
+            <div class="faq-answer">
+              In your domain registrar's DNS management (Cloudflare, Namecheap, GoDaddy):
+              <br>1. Create an <strong>A record</strong> pointing to your server's numeric IP address.
+              <br>2. If your server is not running on the default 25565 port, create an <strong>SRV record</strong> with Service: <code>_minecraft</code>, Protocol: <code>_tcp</code>, Priority: <code>0</code>, Weight: <code>5</code>, Port: <code>[Your Server Port]</code>, Target: <code>[Your A Record]</code>.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Which Java version should I select for Minecraft 1.20 and 1.21?</summary>
+            <div class="faq-answer">
+              Minecraft 1.20.5 and 1.21+ require Java 21. For Minecraft 1.18 to 1.20.4, use Java 17. For 1.16.5 and older, use Java 11 or Java 8. You can switch Java runtimes with a single click in the "Startup" tab of our panel without reinstalling.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How do automated backups work?</summary>
+            <div class="faq-answer">
+              Under the "Backups" tab in the control panel, you can trigger immediate manual snapshots or establish scheduled cron backups (e.g., every 12 hours). Backups are compressed and stored securely off-site, leaving your server disk allocation unaffected.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How do I request a refund if I experience performance issues?</summary>
+            <div class="faq-answer">
+              We offer a straightforward 24 to 48-hour refund guarantee for initial service activations. Simply message our support staff on Discord or submit a request stating your server ID and email, and our team will process your refund promptly.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="section" id="cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-title">STILL HAVE QUESTIONS? <span class="text-gradient">TALK TO US</span></h2>
+          <p class="cta-subtitle">
+            Our engineers and community members are active right now on Discord.
+          </p>
+          <div class="cta-buttons">
+            <a href="https://discord.gg/qsGp3FyNAK" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-glow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <span>Join Discord</span>
+            </a>
+            <button class="btn btn-secondary quote-trigger" onclick="window.minexModal?.open({type: 'custom'})">
+              Get Quote
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clean Global Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+            <img src="assets/logo.png" alt="ShadowNode Logo" style="height: 44px; width: auto;">
+            <span class="brand-text" style="font-size: 1.15rem;"><span class="brand-name">Shadow</span><span class="brand-sub">Node</span></span>
+          </div>
+          <p>
+            High-performance Minecraft servers and scalable VPS cloud infrastructure engineered for zero latency and round-the-clock stability.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Hosting</h4>
+          <ul class="footer-links">
+            <li><a href="minecraft.html">Minecraft Hosting</a></li>
+            <li><a href="vps.html">VPS Cloud Hosting</a></li>
+            <li><a href="minecraft.html">Intel Xeon Platinum Plans</a></li>
+            <li><a href="minecraft.html">AMD EPYC Performance</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="features.html">Core Features</a></li>
+            <li><a href="game-modes.html">Game Modes</a></li>
+            <li><a href="about.html">About ShadowNode</a></li>
+            <li><a href="support.html">Technical Support</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Legal & Community</h4>
+          <ul class="footer-links">
+            <li><a href="https://discord.gg/qsGp3FyNAK" target="_blank" rel="noopener noreferrer">Discord Community</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="refund.html">Refund Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 ShadowNode. All rights reserved. Minecraft is a registered trademark of Mojang Synergies AB.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--cyan-primary);">Engineered for Extreme Performance</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/background.js"></script>
+  <script src="js/cursor.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

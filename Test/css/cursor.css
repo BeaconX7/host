@@ -1,0 +1,163 @@
+/* ============================================================
+   MINE-X HOSTING — DISTINCTIVE GEOMETRIC RETICLE CURSOR
+   Desktop only, non-distracting, segmented halo & soft cyan core
+   ============================================================ */
+
+.custom-cursor-core,
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999999 !important;
+  transform: translate(-50%, -50%);
+  will-change: transform, left, top, width, height, opacity;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* Core: Crisp Diamond Core (5px x 5px) with soft purple glow */
+.custom-cursor-core {
+  width: 5px;
+  height: 5px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--purple-primary);
+  box-shadow: 0 0 6px 1px var(--purple-primary);
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 1px;
+  transition: transform 0.24s var(--ease-spring), width 0.2s ease, height 0.2s ease, background-color 0.15s ease;
+}
+
+/* Ring: Segmented Outer Reticle Halo (24px x 24px) */
+.custom-cursor-ring {
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(168, 85, 247, 0.45);
+  border-radius: 4px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.15);
+  transition: width 0.24s var(--ease-spring), 
+              height 0.24s var(--ease-spring), 
+              border-color 0.2s var(--ease-fluid), 
+              background-color 0.2s var(--ease-fluid),
+              border-radius 0.24s var(--ease-spring),
+              transform 0.24s var(--ease-spring),
+              box-shadow 0.24s var(--ease-fluid);
+}
+
+/* Segmented reticle tick marks at north/south and east/west */
+.custom-cursor-ring::before,
+.custom-cursor-ring::after {
+  content: '';
+  position: absolute;
+  background: var(--purple-primary);
+  opacity: 0.85;
+  transition: all 0.2s ease;
+}
+
+/* North/South ticks */
+.custom-cursor-ring::before {
+  top: -3px;
+  bottom: -3px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(to bottom, var(--purple-primary) 3px, transparent 3px, transparent calc(100% - 3px), var(--purple-primary) calc(100% - 3px));
+}
+
+/* East/West ticks */
+.custom-cursor-ring::after {
+  left: -3px;
+  right: -3px;
+  top: 50%;
+  height: 1px;
+  transform: translateY(-50%);
+  background: linear-gradient(to right, var(--purple-primary) 3px, transparent 3px, transparent calc(100% - 3px), var(--purple-primary) calc(100% - 3px));
+}
+
+/* State: Hover Button (Slight expand and 45deg rotate framing the diamond core) */
+.custom-cursor-ring.hover-btn {
+  width: 38px;
+  height: 38px;
+  border-color: var(--purple-primary);
+  background-color: rgba(168, 85, 247, 0.1);
+  border-radius: 6px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.4);
+}
+
+.custom-cursor-core.hover-btn {
+  width: 7px;
+  height: 7px;
+  background-color: var(--purple-primary);
+  box-shadow: 0 0 10px 2px var(--purple-primary);
+}
+
+/* State: Hover Navigation Link (Subtle rounded ring expansion) */
+.custom-cursor-ring.hover-link {
+  width: 30px;
+  height: 30px;
+  border-color: rgba(192, 132, 252, 0.85);
+  border-radius: 50%;
+  background-color: rgba(168, 85, 247, 0.06);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.25);
+}
+
+/* State: Hover Card (Subtle bracket reaction) */
+.custom-cursor-ring.hover-card {
+  width: 32px;
+  height: 32px;
+  border-color: rgba(168, 85, 247, 0.65);
+  border-radius: 6px;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.22);
+}
+
+/* State: Click Feedback (Crisp scale pulse) */
+.custom-cursor-ring.is-clicked {
+  width: 18px;
+  height: 18px;
+  border-color: #FFFFFF;
+  background-color: rgba(168, 85, 247, 0.35);
+  transform: translate(-50%, -50%) scale(0.82);
+}
+
+.custom-cursor-core.is-clicked {
+  transform: translate(-50%, -50%) rotate(45deg) scale(0.65);
+}
+
+/* Hide default cursor on desktop when custom cursor is active */
+body.has-custom-cursor,
+body.has-custom-cursor *:not(input):not(textarea):not(select) {
+  cursor: none !important;
+}
+
+body.has-custom-cursor input[type="text"],
+body.has-custom-cursor input[type="email"],
+body.has-custom-cursor textarea,
+body.has-custom-cursor .modal-input-field {
+  cursor: text !important;
+}
+
+body.has-custom-cursor input[type="range"],
+body.has-custom-cursor .range-slider {
+  cursor: pointer !important;
+}
+
+/* Disable custom cursor on touch devices, phones, tablets */
+@media (hover: none), (pointer: coarse), (max-width: 1024px) and (hover: none) {
+  .custom-cursor-core,
+  .custom-cursor-ring {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  body.has-custom-cursor,
+  body.has-custom-cursor *,
+  body.has-custom-cursor button,
+  body.has-custom-cursor a,
+  body.has-custom-cursor input {
+    cursor: auto !important;
+  }
+}

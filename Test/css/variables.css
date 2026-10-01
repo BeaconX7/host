@@ -1,0 +1,89 @@
+:root {
+  /* Brand Core Palette - Deep Obsidian & Shadow Black from Logo */
+  --bg-darkest: #050208;
+  --bg-deep-navy: #080410;
+  --bg-navy: #0E071D;
+  --bg-navy-card: rgba(16, 9, 32, 0.82);
+  --bg-navy-hover: rgba(26, 15, 50, 0.88);
+  --bg-navy-elevated: #180C34;
+  --bg-surface-glass: rgba(20, 11, 40, 0.7);
+
+  /* Primary Accent - Glowing Neon Electric Ultraviolet / Violet from Logo */
+  --purple-primary: #A855F7;
+  --purple-bright: #C084FC;
+  --purple-glow: rgba(168, 85, 247, 0.45);
+  --purple-faint: rgba(168, 85, 247, 0.09);
+  --purple-deep: #7C3AED;
+  --purple-ultraviolet: #9333EA;
+  
+  /* Theme Primary Colors (mapped to the logo's purple neon palette) */
+  --cyan-primary: #A855F7;
+  --cyan-bright: #C084FC;
+  --cyan-glow: rgba(168, 85, 247, 0.45);
+  --cyan-faint: rgba(168, 85, 247, 0.09);
+  --blue-electric: #7C3AED;
+  --blue-vibrant: #9333EA;
+  --blue-glow: rgba(124, 58, 237, 0.4);
+  --blue-faint: rgba(124, 58, 237, 0.1);
+
+  /* Discord Brand Palette */
+  --discord-blurple: #5865F2;
+  --discord-hover: #4752C4;
+  --discord-glow: rgba(88, 101, 242, 0.42);
+
+  /* Gold Accent for Best Value */
+  --gold-accent: #F59E0B;
+  --gold-glow: rgba(245, 158, 11, 0.3);
+
+  /* Functional Colors */
+  --status-green: #10B981;
+  --status-green-glow: rgba(16, 185, 129, 0.35);
+  --status-orange: #F97316;
+
+  /* Typography Colors */
+  --text-white: #FFFFFF;
+  --text-primary: #F3F0F8;
+  --text-secondary: #9B91A8;
+  --text-muted: #6B627A;
+  --text-cyan: #C084FC;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-cyan: rgba(168, 85, 247, 0.22);
+  --border-cyan-active: rgba(168, 85, 247, 0.65);
+  --border-blue: rgba(124, 58, 237, 0.3);
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 10px 30px -10px rgba(3, 1, 8, 0.9), 0 0 20px rgba(168, 85, 247, 0.07);
+  --shadow-hover: 0 20px 40px -15px rgba(0, 0, 0, 0.95), 0 0 35px rgba(168, 85, 247, 0.24);
+  --shadow-cyan-glow: 0 0 25px rgba(168, 85, 247, 0.5);
+  --shadow-gold-glow: 0 0 25px rgba(245, 158, 11, 0.35);
+
+  /* Typography Families */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Transitions & Physics Easing Curves */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-back: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-gentle: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.18s var(--ease-fluid);
+  --transition-medium: 0.32s var(--ease-fluid);
+  --transition-slow: 0.65s var(--ease-spring);
+  --transition-bounce: 0.4s var(--ease-out-back);
+
+  /* Layout & Responsive Fluid Spacing */
+  --max-width: 1320px;
+  --navbar-height: clamp(66px, 7vw, 80px);
+  --section-padding: clamp(52px, 7vw, 105px);
+  --section-padding-sm: clamp(34px, 5vw, 65px);
+  --container-padding: clamp(16px, 3.5vw, 32px);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+}
